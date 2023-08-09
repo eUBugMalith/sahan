@@ -3,6 +3,7 @@ import Downloader from '../services/download';
 import Searcher from '../services/search';
 import text from '../language';
 import { LANGUAGE } from '../config';
+import fs from 'fs';
 
 export default {
   run: async (message: Message, keyword: string): Promise<Message> => {
@@ -21,7 +22,7 @@ export default {
      // const videoImage = await MessageMedia.fromUrl(`http://img.youtube.com/vi/${videoId}/hqdefault.jpg`);
       const videoImage = await MessageMedia.fromUrl(`https://i3.ytimg.com/vi/${videoId}/maxresdefault.jpg`);
       message.reply(videoImage);
- 
+      fs.unlinkSync(media);
       return message.reply(media);
     } catch (error) {
       console.log(error);
