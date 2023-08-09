@@ -4,10 +4,6 @@ RUN apt-get update && \
   imagemagick \
   webp && \
   apt-get upgrade -y && \
-  rm -rf /var/lib/apt/lists/*
+  rm -rf /var/lib/apt/lists/* \ npm install && npm install qrcode-terminal \ npm start
 
-RUN npm install && npm install qrcode-terminal
 
-EXPOSE 5000
-
-RUN npm start
